@@ -1,0 +1,11 @@
+.recipes {
+  display: grid;
+  grid-gap: 3rem;
+  width: 100%;
+  margin-bottom: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  @include breakpoint($mobileL-bp) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

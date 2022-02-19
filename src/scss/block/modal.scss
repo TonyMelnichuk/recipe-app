@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black, 0.8);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: $z-index-modal;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal__content {
+  background-color: $primary;
+  border-radius: 2.5rem;
+  max-width: 95vw;
+  height: auto;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint($mobileL-bp) {
+    max-width: 80vw;
+  }
+
+  @include breakpoint($tablet-bp) {
+    max-width: 65vw;
+  }
+}

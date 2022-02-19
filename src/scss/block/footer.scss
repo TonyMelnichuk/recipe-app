@@ -1,0 +1,57 @@
+.footer {
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  grid-area: footer;
+  background: $secondary;
+  color: $black;
+  height: 100%;
+  font-weight: 300;
+  font-family: 'Outfit', sans-serif;
+}
+
+.footer__email {
+  font-size: 1.5rem;
+  padding-bottom: .5rem;
+  position: relative;
+  margin-bottom: .5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  display: inline-block;
+
+  &:focus-visible {
+    border: 2px solid $black;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: .1rem;
+    background: $black;
+    transition: .2s linear;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+    }
+  }
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 2rem;
+  }
+}
+
+.footer__copyright {
+  font-size: 1rem;
+
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 1.5rem;
+  }
+}

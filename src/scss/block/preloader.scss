@@ -1,0 +1,14 @@
+.preloader {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+  z-index: $z-index-preloader;
+}
+
+.preloader__img {
+  width: 8rem;
+  height: 8rem;
+}

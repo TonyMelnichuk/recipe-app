@@ -1,0 +1,26 @@
+.empty-page {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-gap: 0rem;
+  height: 100%;
+
+  @media (min-height: 414px) {
+    grid-gap: 1rem;
+  }
+}
+
+.empty-page__img {
+  width: 10rem;
+
+  @media (min-height: 414px) {
+    width: 15rem;
+  }
+}
+
+.empty-page__text {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1.5px;
+}

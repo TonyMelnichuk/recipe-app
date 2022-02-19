@@ -1,0 +1,13 @@
+@mixin box-shadow($right: 5px, $down: 0, $spread: 15px, $blur: 0.3) {
+  box-shadow: $right $down $spread rgba($color: $black, $alpha: $blur);
+}
+
+@mixin text-shadow($right: 3px, $down: 0, $spread: 15px, $blur: 0.2) {
+  text-shadow: $right $down $spread rgba($color: $black, $alpha: $blur);
+}
+
+@mixin breakpoint($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

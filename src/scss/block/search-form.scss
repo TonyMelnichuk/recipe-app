@@ -1,0 +1,209 @@
+@keyframes pulse-animation {
+  0% {
+    @include box-shadow(0, 0, 40px, 0.2);
+  }
+  50% {
+    transform: scaleY(1.1);
+    transform: scaleX(1.1);
+    @include box-shadow(2px, 2px, 100px, 0.4);
+  }
+  100% {
+    transform: scaleY(1);
+    transform: scaleX(1);
+    @include box-shadow(2px, 2px, 20px, 0.2);
+  }
+}
+
+.search-form__input {
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  color: $black;
+  border: 2px solid transparent;
+  background-color: $secondary;
+  border-radius: 10em;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.5px;
+  @include text-shadow;
+
+  &:hover {
+    border-color: lighten($black, 30%);
+  }
+
+  &::placeholder {
+    color: lighten($black, 10%);
+  }
+
+  &:focus {
+    border-color: $black;
+    border-radius: 30px;
+  }
+
+  &--wrong {
+    animation: pulse-animation 300ms 2;
+  }
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+  }
+
+  @include breakpoint($tablet-bp) {
+    font-size: 2rem;
+    padding: 1.2rem 2rem;
+  }
+}
+
+.search-form__range-items {
+  margin-bottom: 4rem;
+
+  @include breakpoint($mobileL-bp) {
+    margin-bottom: 7rem;
+  }
+
+  @include breakpoint($laptop-bp) {
+    margin-bottom: 10rem;
+  }
+}
+
+.search-form__submit-btn {
+  background-color: $secondary;
+  text-transform: uppercase;
+  padding: 0.6em 2.5rem;
+  border-radius: 0.6em;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s linear;
+  color: lighten($black, 5%);
+  border: 3px solid transparent;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  transition: transform .2s ease, background .2s ease;
+  @include box-shadow;
+  @include text-shadow;
+
+  &:hover {
+    background-color: lighten($secondary, 7%);
+  }
+
+  &:focus-visible {
+    border: 3px solid $black;
+  }
+
+  &:active {
+    transform: scale(.9);
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: .5;
+  }
+
+  @include breakpoint($mobileL-bp) {
+    padding: 0.6em 2.8rem;
+    font-size: 1.4rem;
+  }
+
+  @include breakpoint($tablet-bp) {
+    padding: 0.7em 3rem;
+    font-size: 1.7rem;
+  }
+}
+
+.input-range {
+  padding: 2.4rem;
+  width: 70% !important;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint($mobileL-bp) {
+    margin-bottom: 2rem;
+  }
+}
+
+.input-range__track--active,
+.input-range__slider {
+  background: $secondary !important;
+  border-color: $secondary !important;
+}
+
+.input-range__track {
+  height: 4px !important;
+
+  @include breakpoint($mobileL-bp) { 
+    height: 5px !important;
+  }
+
+  @include breakpoint($tablet-bp) {
+    height: 6px !important;
+  }
+}
+
+.input-range__slider {
+  height: 12px !important;
+  width: 12px !important;
+  margin-top: -.8rem !important;
+  z-index: 99999 !important;
+  transition: background .2s ease, border, .2s ease !important;
+
+  &:hover {
+    background: lighten($secondary, 10%) !important;
+    border-color: lighten($secondary, 10%) !important;
+  }
+
+  &:active {
+    background: darken($secondary, 17%) !important;
+    border-color: darken($secondary, 17%) !important;
+  }
+
+  @include breakpoint($mobileL-bp) {
+    height: 14px !important;
+    width: 14px !important;
+    margin-top: -1rem !important;
+  }
+
+  @include breakpoint($tablet-bp) {
+    height: 18px !important;
+    width: 18px !important;
+    margin-top: -1.2rem !important;
+  }
+}
+
+.input-range__label--value {
+  top: -2.8rem !important;
+  font-size: 1.2rem !important;
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 1.4rem !important;
+    top: -3.1rem !important;
+  }
+
+  @include breakpoint($tablet-bp) {
+    top: -3.5rem !important;
+    font-size: 1.6rem !important;
+  }
+}
+
+.input-range__label-container {
+  left: -30% !important;
+  font-weight: 300;
+  font-family: 'Outfit', sans-serif;
+}
+
+.input-range__label {
+  color: $black !important;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+}
+
+.input-range__label--min,
+.input-range__label--max {
+  display: none;
+}

@@ -1,0 +1,44 @@
+.pagination {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination__btn {
+  background: $primary;
+  font-size: 1.7rem;
+  padding: 0.4em 0.6em;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: $black;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+
+  &:focus-visible {
+    border: 2px solid $black;
+  }
+
+  &--active {
+    background-color: $secondary;
+  }
+
+  &:not(&--active) {
+    &:hover {
+      color: $secondary;
+    }
+  }
+  
+  &--side {
+    color: darken($secondary, 20%);
+  }
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 2.2rem;
+  }
+
+  @include breakpoint($tabletS-bp) {
+    font-size: 2.6rem;
+    padding: 0.5em 0.7em;
+  }
+}

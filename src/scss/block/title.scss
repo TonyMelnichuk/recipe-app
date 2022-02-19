@@ -1,0 +1,18 @@
+.title {
+  display: block;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: $black;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 1.4rem;
+  }
+
+  @include breakpoint($tablet-bp) {
+    font-size: 1.6rem;
+  }
+}

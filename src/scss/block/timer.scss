@@ -1,0 +1,59 @@
+.timer {
+  padding: 2.5rem;
+
+  @include breakpoint($mobileS-bp) {
+    padding: 4rem 5rem;
+  }
+
+  @include breakpoint($tablet-bp) {
+    padding: 8rem 12rem;
+  }
+}
+
+.timer__title {
+  text-transform: unset;
+}
+
+.timer__inner {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+}
+
+.timer__svg {
+  transform: rotateZ(-90deg);
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+
+.timer__svg-circle {
+  stroke: $secondary;
+  stroke-width: 12;
+  fill: transparent;
+  stroke-dashoffset: 500;
+  stroke-dasharray: 0;
+  animation: 120s circleTimer linear;
+}
+
+.timer__count {
+  position: absolute;
+  display: block;
+  color: $black;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+}
+
+@keyframes circleTimer {
+  0% {
+    stroke-dashoffset: 500;
+    stroke-dasharray: 500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 500;
+  }
+}

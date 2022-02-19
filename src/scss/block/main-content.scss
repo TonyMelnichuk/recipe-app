@@ -1,0 +1,21 @@
+.main-content {
+  width: 100%;
+  grid-area: main-content;
+  position: relative;
+  padding: 1rem 1rem 3rem;
+  max-width: 1380px;
+  margin: 0 auto;
+
+  @include breakpoint($mobileS-bp) {
+    padding: 2rem 2rem 4rem;
+  } 
+
+  @include breakpoint($tablet-bp) {
+    padding: 3rem 3rem 5rem;
+  }
+
+  @include breakpoint($laptop-bp) {
+    padding: 5rem;
+  }
+}
+

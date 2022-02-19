@@ -1,0 +1,45 @@
+.sidebar {
+  background-color: $primary;
+  height: 100%;
+  padding: 1.5rem 2rem 1rem;
+  text-align: center;
+  transition: left 0.2s ease-in-out;
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: -100%;
+  z-index: $z-index-sidebar;
+  grid-area: sidebar;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  @include box-shadow;
+
+  &--active {
+    left: 0;
+  }
+
+  @include breakpoint($laptop-bp) {
+    position: sticky;
+    left: 0;
+    width: 100%;
+    padding: 5rem 4rem 2rem;
+    display: block;
+    height: 100vh;
+  }
+}
+
+.sidebar__close-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-self: end;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint($mobileL-bp) {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  @include breakpoint($laptop-bp) {
+    display: none;
+  }
+}

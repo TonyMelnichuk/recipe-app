@@ -1,0 +1,95 @@
+.checkboxes {
+  background-color: $secondary;
+  border-radius: 1em;
+  padding: 1.5rem 1rem;
+  margin-bottom: 2.7rem;
+  @include box-shadow;
+}
+
+.checkboxes__list {
+  display: inline-block;
+}
+
+.checkbox__item {
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 .5rem;
+  border: 1px solid transparent;
+  transition: transform .2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover .checkbox__item-span {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    border: 1px solid $black;
+  }
+
+  @include breakpoint($mobileL-bp) {
+    margin-bottom: .7rem;
+  }
+}
+
+.checkbox__input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+
+  &:checked {
+    ~ .checkbox__span {
+      box-shadow: 0px 0px 0px 10px $black inset;
+      border: none;
+
+      @include breakpoint($mobileL-bp) {
+        box-shadow: 0px 0px 0px 15px $black inset;
+      }
+    }
+  }
+}
+
+.checkbox__span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid $black;
+  position: absolute;
+  pointer-events: none;
+  transition: transform .1s linear;
+
+  @include breakpoint($mobileL-bp) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.checkbox__label {
+  color: $black;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding-left: 1.7rem; 
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  font-family: 'Outfit', sans-serif;
+
+  @include breakpoint($mobileL-bp) {
+    font-size: 1.3rem;
+    padding-left: 2.5rem; 
+  }
+
+  @include breakpoint($tablet-bp) {
+    font-size: 1.5rem;
+    padding-left: 2.5rem; 
+  }
+}

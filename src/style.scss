@@ -1,0 +1,59 @@
+@import './scss/vars.scss';
+@import './scss/mixins.scss';
+@import './scss/vendor/reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&family=Roboto:wght@300;500&display=swap');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $primary;
+  font-size: 1.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  color: $white;
+  line-height: 1.5;
+}
+
+html, body, #root, .page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page {
+  display: grid;
+  overflow-y: auto;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    'header'
+    'main-content'
+    'footer';
+
+  @include breakpoint($laptop-bp) {
+    grid-template-columns: 35rem 1fr;
+    grid-template-areas: 
+      'sidebar header'
+      'sidebar main-content'
+      'sidebar footer'
+  } 
+}
+
+@import './scss/block/sidebar.scss';
+@import './scss/block/main-content.scss';
+@import './scss/block/search-form.scss';
+@import './scss/block/checkboxes.scss';
+@import './scss/block/title.scss';
+@import './scss/block/header.scss';
+@import './scss/block/recipes.scss';
+@import './scss/block/recipe.scss';
+@import './scss/block/ingredients.scss';
+@import './scss/block/pagination.scss';
+@import './scss/block/modal.scss';
+@import './scss/block/timer.scss';
+@import './scss/block/preloader.scss';
+@import './scss/block/empty-page.scss';
+@import './scss/block/close-button.scss';
+@import './scss/block/footer.scss';
