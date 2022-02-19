@@ -7,9 +7,6 @@ import Header from './components/Header/Header'
 import RequestLimitError from './components/RequestLimitError/RequestLimitError'
 import Footer from './components/Footer/Footer'
 
-// ! Коли я залю проект на git, подивитись чи там нема файлів: .env, packageJSON, бо я їх наче добавав в gitignore
-
-
 const App: FC = () => {
   const [state, dispatch] = useReducer(recipesReducer, initialState)
 
