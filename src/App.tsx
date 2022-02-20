@@ -19,13 +19,14 @@ const App: FC = () => {
 
   return (
     <div className='page' ref={pageRef}>
-      <Header dispatch={dispatch} />
+      hello world!
+      {/* <Header dispatch={dispatch} />
       <Sidebar dispatch={dispatch} isSidebarOpen={state.isSidebarOpen} isFetching={state.isFetching} />
       <MainContent state={state} dispatch={dispatch} />
       {state.requestLimitErrorText !== '' && (
         <RequestLimitError dispatch={dispatch} requestLimitErrorText={state.requestLimitErrorText} />
       )}
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
