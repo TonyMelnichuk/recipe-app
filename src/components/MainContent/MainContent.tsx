@@ -8,10 +8,10 @@ import { useLocalRecipes } from '../../hooks/useLocalRecipes'
 import { getRecipes } from '../../api/api'
 import {
   setIsFetching,
-  setWrongSearch,
+  setRequestErrorMessage,
   setRecipes,
   toggleSidebar,
-  setRequestLimitError,
+  setIsRequestLimit,
   ActionCreatorsTypes
 } from '../../actions/recipeActions'
 import EmptyPage from '../common/EmptyPage'
@@ -26,12 +26,12 @@ const MainContent: FC<MainContentProps> = ({ state, dispatch }) => {
     formData,
     currentPage,
     pageSize,
-    requestLimitErrorText
+    isRequestLimit
   } = state
 
   useLocalRecipes(dispatch, state.localRecipes, state.isFetching)
 
-  useEffect(() => { 
+  useEffect(() => {
     const fetchRecipes = async () => {
       try {
         dispatch(setIsFetching(true))
@@ -44,21 +44,27 @@ const MainContent: FC<MainContentProps> = ({ state, dispatch }) => {
         const searchQuery = formData.searchQuery
 
         const response = await getRecipes(searchQuery, currentPage, pageSize, ingredientsCount, calories, dietLabels)
+
+        if (!response.ok) throw new Error('request error')
+
         const data = await response.json()
 
-        !data.more
-          ? dispatch(setWrongSearch('No recipes match your search'))
-          : dispatch(setWrongSearch(''))
+        data.more
+          ? dispatch(setRequestErrorMessage(''))
+          : dispatch(setRequestErrorMessage('No recipes match your search'))
 
         dispatch(setRecipes(data.hits))
+      } catch (err: any) {
+        err.message === 'request error' 
+          ? dispatch(setRequestErrorMessage('Oops... There was an error! Please try again.'))
+          : dispatch(setIsRequestLimit(true))
+      } finally {
         dispatch(setIsFetching(false))
         dispatch(toggleSidebar(false))
-      } catch {
-        dispatch(setRequestLimitError('Request limit error. Please wait'))
       }
     }
     fetchRecipes()
-  }, [currentPage, requestLimitErrorText, formData, pageSize, dispatch])
+  }, [currentPage, isRequestLimit, formData, pageSize, dispatch])
 
   return (
     <section className='main-content'>
@@ -74,7 +80,7 @@ const MainContent: FC<MainContentProps> = ({ state, dispatch }) => {
               dispatch={dispatch}
             />)}
         />
-        <Route render={() => <EmptyPage text='404 Not Found'/>} />
+        <Route render={() => <EmptyPage text='404 Not Found' />} />
       </Switch>
       <Ingredients
         {...state.recipeIngredientsModalData}

@@ -22,8 +22,8 @@ const App: FC = () => {
       <Header dispatch={dispatch} />
       <Sidebar dispatch={dispatch} isSidebarOpen={state.isSidebarOpen} isFetching={state.isFetching} />
       <MainContent state={state} dispatch={dispatch} />
-      {state.requestLimitErrorText !== '' && (
-        <RequestLimitError dispatch={dispatch} requestLimitErrorText={state.requestLimitErrorText} />
+      {state.isRequestLimit && (
+        <RequestLimitError dispatch={dispatch} isRequestLimit={state.isRequestLimit} />
       )}
       <Footer />
     </div>

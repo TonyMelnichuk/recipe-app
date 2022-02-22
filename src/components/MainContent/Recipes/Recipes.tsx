@@ -15,7 +15,7 @@ interface RecipesProps {
 const Recipes: FC<RecipesProps> = ({ state, dispatch }) => {
   const {
     isFetching,
-    wrongSearchAlertText,
+    requestErrorMessage,
     recipes,
     pageSize,
     currentPage,
@@ -23,7 +23,7 @@ const Recipes: FC<RecipesProps> = ({ state, dispatch }) => {
   } = state
 
   if (isFetching) return <Preloader />
-  else if (wrongSearchAlertText !== '') return <EmptyPage text={wrongSearchAlertText} />
+  else if (requestErrorMessage !== '') return <EmptyPage text={requestErrorMessage} />
 
   return (
     <>

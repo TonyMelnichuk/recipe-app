@@ -1,13 +1,13 @@
 import {
   SET_RECIPES,
   SET_LOCAL_RECIPES,
-  IS_FETCHING,
+  SET_IS_FETCHING,
   SET_FORM_DATA,
   SET_CURRENT_PAGE,
   SET_PORTION_NUMBER,
   SET_PAGE_SIZE,
-  SET_REQUEST_LIMIT_ERROR,
-  SET_WRONG_SEARCH,
+  SET_IS_REQUEST_LIMIT,
+  SET_REQUEST_ERROR_MESSAGE,
   TOGGLE_SIDEBAR,
   TOGGLE_IS_BOOKMARKED,
   SET_INGREDIENTS_MODAL_DATA
@@ -27,8 +27,8 @@ export const initialState: InitialStateType = {
   },
   currentPage: 1,
   pageSize: 12,
-  requestLimitErrorText: '',
-  wrongSearchAlertText: '',
+  isRequestLimit: false,
+  requestErrorMessage: '',
   portionNumber: 1,
   isSidebarOpen: false,
   recipeIngredientsModalData: {
@@ -73,7 +73,7 @@ export function recipesReducer(
         })),
         localRecipes: action.recipes
       }
-    case IS_FETCHING:
+    case SET_IS_FETCHING:
       return {
         ...state,
         isFetching: action.isFetching
@@ -94,15 +94,15 @@ export function recipesReducer(
         ...state,
         pageSize: action.pageSize
       }
-    case SET_REQUEST_LIMIT_ERROR:
+    case SET_IS_REQUEST_LIMIT:
       return {
         ...state,
-        requestLimitErrorText: action.requestLimitErrorText
+        isRequestLimit: action.isRequestLimit
       }
-    case SET_WRONG_SEARCH:
+    case SET_REQUEST_ERROR_MESSAGE:
       return {
         ...state,
-        wrongSearchAlertText: action.wrongSearchAlertText
+        requestErrorMessage: action.requestErrorMessage
       }
     case SET_PORTION_NUMBER:
       return {

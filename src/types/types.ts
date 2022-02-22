@@ -73,8 +73,8 @@ export type InitialStateType = {
   formData: FormDataType
   currentPage: number
   pageSize: number
-  requestLimitErrorText: string
-  wrongSearchAlertText: string
+  isRequestLimit: boolean
+  requestErrorMessage: string
   portionNumber: number
   isSidebarOpen: boolean
   recipeIngredientsModalData: {

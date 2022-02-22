@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from 'react'
-import { ActionCreatorsTypes, setRequestLimitError } from '../../actions/recipeActions'
+import { ActionCreatorsTypes, setIsRequestLimit } from '../../actions/recipeActions'
 
 interface RequestLimitErrorProps {
-  requestLimitErrorText: string
+  isRequestLimit: boolean
   dispatch: React.Dispatch<ActionCreatorsTypes>
 }
 
-const RequestLimitError: FC<RequestLimitErrorProps> = ({ requestLimitErrorText, dispatch }) => {
+const RequestLimitError: FC<RequestLimitErrorProps> = ({ dispatch }) => {
   const [seconds, setSeconds] = useState<number>(60)
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const RequestLimitError: FC<RequestLimitErrorProps> = ({ requestLimitErrorText, 
 
   useEffect(() => {
     if (seconds <= 0) {
-      dispatch(setRequestLimitError(''))
+      dispatch(setIsRequestLimit(false))
       setSeconds(60)
     }
   }, [seconds, dispatch])
@@ -28,7 +28,7 @@ const RequestLimitError: FC<RequestLimitErrorProps> = ({ requestLimitErrorText, 
     <div className='modal'>
       <div className='modal__content'>
         <div className='timer'>
-          <h3 className='title timer__title'>{requestLimitErrorText}</h3>
+          <h3 className='title timer__title'>Request limit. Please wait.</h3>
           <div className='timer__inner'>
             <svg className='timer__svg'>
               <circle className='timer__svg-circle' cx='75' cy='75' r='40' />

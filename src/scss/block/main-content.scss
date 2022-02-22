@@ -5,6 +5,8 @@
   padding: 1rem 1rem 3rem;
   max-width: 1380px;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
 
   @include breakpoint($mobileS-bp) {
     padding: 2rem 2rem 4rem;
